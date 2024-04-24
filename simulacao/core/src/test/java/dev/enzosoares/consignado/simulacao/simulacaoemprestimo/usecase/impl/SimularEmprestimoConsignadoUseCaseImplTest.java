@@ -33,7 +33,7 @@ public class SimularEmprestimoConsignadoUseCaseImplTest {
 
     @BeforeEach
     void cleanUp() {
-        Mockito.reset(clienteRepository);
+        Mockito.reset(clienteRepository, simulacaoEmprestimoRepository);
     }
 
     @Test

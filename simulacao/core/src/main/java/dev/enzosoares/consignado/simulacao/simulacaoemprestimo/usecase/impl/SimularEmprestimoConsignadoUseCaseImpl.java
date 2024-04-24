@@ -57,10 +57,12 @@ public class SimularEmprestimoConsignadoUseCaseImpl implements SimularEmprestimo
 
         final var simulacao = SimulacaoEmprestimo.with(
                 cpfCliente,
+                cliente.getConvenio(),
                 valorParcela,
                 valorFinal,
                 taxa,
-                quantidadeDesejadaParcelas
+                quantidadeDesejadaParcelas,
+                valorSolicitado
         );
 
         this.simulacaoEmprestimoRepository.save(simulacao);
@@ -69,10 +71,12 @@ public class SimularEmprestimoConsignadoUseCaseImpl implements SimularEmprestimo
                 simulacao.getIdSimulacao().toString(),
                 simulacao.getDataSimulacao(),
                 simulacao.getCpfCliente().getValue(),
+                simulacao.getConvenioCliente().toString(),
                 simulacao.getValorParcela(),
                 simulacao.getValorEmprestimo(),
                 simulacao.getQuantidadeParcelas(),
-                simulacao.getTaxaJuros());
+                simulacao.getTaxaJuros(),
+                simulacao.getValorSolicitado());
     }
 
     public static BigDecimal calcularTaxaJurosCliente(Cliente cliente) {

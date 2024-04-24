@@ -7,9 +7,11 @@ public record SimularEmprestimoConsignadoOutput(
         String idSimulacao,
         Instant dataSimulacao,
         String cpf,
+        String convenio,
         BigDecimal valorParcela,
         BigDecimal valorTotal,
         Integer quantidadeParcelas,
-        BigDecimal taxaJuros
+        BigDecimal taxaJuros,
+        BigDecimal valorSolicitado
 ) {
 }
