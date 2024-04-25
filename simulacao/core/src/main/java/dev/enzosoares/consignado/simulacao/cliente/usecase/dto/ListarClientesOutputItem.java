@@ -2,6 +2,8 @@ package dev.enzosoares.consignado.simulacao.cliente.usecase.dto;
 
 import dev.enzosoares.consignado.simulacao.cliente.Cliente;
 
+import java.util.Optional;
+
 public record ListarClientesOutputItem(
         String cpf,
         String nome,
@@ -14,7 +16,7 @@ public record ListarClientesOutputItem(
                 cliente.getCpf().getValue(),
                 cliente.getNome(),
                 cliente.getConvenio().toString(),
-                cliente.getSegmento().toString(),
+                Optional.ofNullable(cliente.getSegmento()).map(Enum::toString).orElse(null),
                 cliente.isCorrentista()
         );
     }

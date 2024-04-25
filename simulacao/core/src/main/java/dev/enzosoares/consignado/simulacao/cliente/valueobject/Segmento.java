@@ -28,4 +28,13 @@ public enum Segmento {
     public String getKey() {
         return key;
     }
+
+    public static Segmento getSegmentoByKey(String key) {
+        for (Segmento segmento : Segmento.values()) {
+            if (segmento.getKey().equals(key)) {
+                return segmento;
+            }
+        }
+        return null;
+    }
 }

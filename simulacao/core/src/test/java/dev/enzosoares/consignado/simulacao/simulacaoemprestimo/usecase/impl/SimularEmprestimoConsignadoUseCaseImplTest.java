@@ -240,4 +240,22 @@ public class SimularEmprestimoConsignadoUseCaseImplTest {
         //then
         assertEquals(expectedMessage, anException.getMessage());
     }
+
+    @Test
+    void givenANullSegmento_whenCalcularPrazoMaximoSimulacaoCliente_shouldReturnDefaultPrazo() {
+        final var expectedPrazo = 12;
+        // Given
+        Cliente umCliente = Cliente.with(
+                CPF.with("222.222.222-22"),
+                "Michael Jackson",
+                false,
+                null,
+                Convenio.EMPRESA_PRIVADA);
+
+        // When
+        Integer prazoMaximoSimulacaoCliente = SimularEmprestimoConsignadoUseCaseImpl.calcularPrazoMaximoSimulacaoCliente(umCliente);
+
+        // Then
+        assertEquals(expectedPrazo, prazoMaximoSimulacaoCliente);
+    }
 }

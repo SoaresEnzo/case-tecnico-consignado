@@ -9,11 +9,21 @@ public enum Convenio {
         public BigDecimal getTaxa() {
             return new BigDecimal("0.026");
         }
+
+        @Override
+        public String toString() {
+                return "Empresa Privada";
+        }
     },
     ORGAO_PUBLICO("OP") {
         @Override
         public BigDecimal getTaxa() {
             return new BigDecimal("0.022");
+        }
+
+        @Override
+        public String toString() {
+                return "Orgão Público";
         }
     },
     INSS("INSS") {
@@ -33,5 +43,14 @@ public enum Convenio {
 
     public String getKey() {
         return key;
+    }
+
+    public static Convenio getConvenioByKey(String key) {
+        for (Convenio convenio : Convenio.values()) {
+            if (convenio.getKey().equals(key)) {
+                return convenio;
+            }
+        }
+        throw new IllegalArgumentException("Convenio não encontrado para a chave: " + key);
     }
 }
