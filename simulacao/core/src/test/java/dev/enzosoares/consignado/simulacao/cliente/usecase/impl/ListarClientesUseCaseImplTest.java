@@ -49,13 +49,13 @@ class ListarClientesUseCaseImplTest {
         assertEquals("111.111.111-11", clientes.getFirst().cpf());
         assertEquals(true, clientes.getFirst().correntista());
         assertEquals("UNICLASS", clientes.get(0).segmento());
-        assertEquals("EMPRESA_PRIVADA", clientes.get(0).convenio());
+        assertEquals("Empresa Privada", clientes.get(0).convenio());
 
         assertEquals("LeBron James", clientes.get(1).nome());
         assertEquals("222.222.222-22", clientes.get(1).cpf());
         assertEquals(true, clientes.get(1).correntista());
         assertEquals("UNICLASS", clientes.get(1).segmento());
-        assertEquals("EMPRESA_PRIVADA", clientes.get(1).convenio());
+        assertEquals("Empresa Privada", clientes.get(1).convenio());
 
 
         Mockito.verify(clienteRepository, Mockito.times(1)).findAll();

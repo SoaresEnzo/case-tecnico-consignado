@@ -1,5 +1,6 @@
 package dev.enzosoares.consignado.simulacao.cliente.usecase.dto;
 
+import dev.enzosoares.consignado.simulacao.errors.BadRequestException;
 import dev.enzosoares.consignado.simulacao.simulacaoemprestimo.usecase.dto.SimularEmprestimoConsignadoInput;
 import org.junit.jupiter.api.Test;
 
@@ -28,7 +29,7 @@ class SimularEmprestimoConsignadoInputTest {
         final var parcelas = 12;
         final var expectedMessage = "CPF não pode ser nulo ou vazio";
 
-        final var actualException = assertThrows(IllegalArgumentException.class, () ->
+        final var actualException = assertThrows(BadRequestException.class, () ->
                 new SimularEmprestimoConsignadoInput(cpf, valor, parcelas));
         assertEquals(expectedMessage, actualException.getMessage());
     }
@@ -40,7 +41,7 @@ class SimularEmprestimoConsignadoInputTest {
         final var parcelas = 12;
         final var expectedMessage = "CPF não pode ser nulo ou vazio";
 
-        final var actualException = assertThrows(IllegalArgumentException.class, () ->
+        final var actualException = assertThrows(BadRequestException.class, () ->
                 new SimularEmprestimoConsignadoInput(cpf, valor, parcelas));
         assertEquals(expectedMessage, actualException.getMessage());
     }
@@ -52,7 +53,7 @@ class SimularEmprestimoConsignadoInputTest {
         final var parcelas = 12;
         final var expectedMessage = "Valor solicitado não pode ser nulo ou menor ou igual a zero";
 
-        final var actualException = assertThrows(IllegalArgumentException.class, () ->
+        final var actualException = assertThrows(BadRequestException.class, () ->
                 new SimularEmprestimoConsignadoInput(cpf, valor, parcelas));
         assertEquals(expectedMessage, actualException.getMessage());
     }
@@ -64,7 +65,7 @@ class SimularEmprestimoConsignadoInputTest {
         final var parcelas = 12;
         final var expectedMessage = "Valor solicitado não pode ser nulo ou menor ou igual a zero";
 
-        final var actualException = assertThrows(IllegalArgumentException.class, () ->
+        final var actualException = assertThrows(BadRequestException.class, () ->
                 new SimularEmprestimoConsignadoInput(cpf, valor, parcelas));
         assertEquals(expectedMessage, actualException.getMessage());
     }
@@ -76,7 +77,7 @@ class SimularEmprestimoConsignadoInputTest {
         final var parcelas = 12;
         final var expectedMessage = "Valor solicitado não pode ser nulo ou menor ou igual a zero";
 
-        final var actualException = assertThrows(IllegalArgumentException.class, () ->
+        final var actualException = assertThrows(BadRequestException.class, () ->
                 new SimularEmprestimoConsignadoInput(cpf, valor, parcelas));
         assertEquals(expectedMessage, actualException.getMessage());
     }
@@ -88,7 +89,7 @@ class SimularEmprestimoConsignadoInputTest {
         final Integer parcelas = null;
         final var expectedMessage = "Quantidade de parcelas não pode ser nula ou menor ou igual a zero";
 
-        final var actualException = assertThrows(IllegalArgumentException.class, () ->
+        final var actualException = assertThrows(BadRequestException.class, () ->
                 new SimularEmprestimoConsignadoInput(cpf, valor, parcelas));
         assertEquals(expectedMessage, actualException.getMessage());
     }
@@ -100,7 +101,7 @@ class SimularEmprestimoConsignadoInputTest {
         final var parcelas = 0;
         final var expectedMessage = "Quantidade de parcelas não pode ser nula ou menor ou igual a zero";
 
-        final var actualException = assertThrows(IllegalArgumentException.class, () ->
+        final var actualException = assertThrows(BadRequestException.class, () ->
                 new SimularEmprestimoConsignadoInput(cpf, valor, parcelas));
         assertEquals(expectedMessage, actualException.getMessage());
     }
@@ -112,7 +113,7 @@ class SimularEmprestimoConsignadoInputTest {
         final var parcelas = -12;
         final var expectedMessage = "Quantidade de parcelas não pode ser nula ou menor ou igual a zero";
 
-        final var actualException = assertThrows(IllegalArgumentException.class, () ->
+        final var actualException = assertThrows(BadRequestException.class, () ->
                 new SimularEmprestimoConsignadoInput(cpf, valor, parcelas));
         assertEquals(expectedMessage, actualException.getMessage());
     }

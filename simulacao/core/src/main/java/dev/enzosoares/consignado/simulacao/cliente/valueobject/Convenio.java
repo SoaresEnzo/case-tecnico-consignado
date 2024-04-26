@@ -51,6 +51,6 @@ public enum Convenio {
                 return convenio;
             }
         }
-        throw new IllegalArgumentException("Convenio não encontrado para a chave: " + key);
+        throw new RuntimeException("Convenio não encontrado para a chave: " + key);
     }
 }

@@ -1,5 +1,7 @@
 package dev.enzosoares.consignado.simulacao.cliente.valueobject;
 
+import dev.enzosoares.consignado.simulacao.errors.BadRequestException;
+
 import java.util.Objects;
 
 public class CPF {
@@ -11,7 +13,7 @@ public class CPF {
 
     private void validate() {
         if (!value.matches("[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}")) {
-            throw new IllegalArgumentException("CPF inválido, deve estar no formato DDD.DDD.DDD-DD");
+            throw new BadRequestException("CPF inválido, deve estar no formato DDD.DDD.DDD-DD");
         }
     }
 

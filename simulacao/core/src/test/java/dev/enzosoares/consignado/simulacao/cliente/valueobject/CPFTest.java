@@ -1,5 +1,6 @@
 package dev.enzosoares.consignado.simulacao.cliente.valueobject;
 
+import dev.enzosoares.consignado.simulacao.errors.BadRequestException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,7 +13,7 @@ class CPFTest {
         final var aValue = "12345678901";
         final var expectedMessage = "CPF inválido, deve estar no formato DDD.DDD.DDD-DD";
 
-        final var exception = assertThrows(IllegalArgumentException.class, () -> CPF.with(aValue));
+        final var exception = assertThrows(BadRequestException.class, () -> CPF.with(aValue));
         assertEquals(expectedMessage, exception.getMessage());
     }
 

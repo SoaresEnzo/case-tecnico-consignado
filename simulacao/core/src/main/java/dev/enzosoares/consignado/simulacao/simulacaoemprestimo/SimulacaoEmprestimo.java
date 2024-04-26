@@ -60,6 +60,29 @@ public class SimulacaoEmprestimo {
         );
     }
 
+    public static SimulacaoEmprestimo of(
+            final String uuid,
+            final Instant dataSimulacao,
+            final CPF cpfCliente,
+            final Convenio convenioCliente,
+            final BigDecimal valorParcela,
+            final BigDecimal valorEmprestimo,
+            final BigDecimal taxaJuros,
+            final Integer quantidadeParcelas,
+            final BigDecimal valorSolicitado
+    ) {
+        return new SimulacaoEmprestimo(
+                UUID.fromString(uuid),
+                cpfCliente,
+                convenioCliente,
+                dataSimulacao,
+                valorParcela, valorEmprestimo,
+                taxaJuros,
+                quantidadeParcelas,
+                valorSolicitado
+        );
+    }
+
     public UUID getIdSimulacao() {
         return idSimulacao;
     }

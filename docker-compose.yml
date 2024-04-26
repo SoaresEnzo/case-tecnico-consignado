@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  mysql:
+    container_name: simulacao_database
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=simulacao
+    security_opt:
+      - seccomp:unconfined
+    ports:
+      - 3306:3306
+    networks:
+      - simulacao
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+       
+networks:
+  simulacao:

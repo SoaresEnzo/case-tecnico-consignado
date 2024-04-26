@@ -2,6 +2,8 @@ package dev.enzosoares.consignado.simulacao.simulacaoemprestimo.usecase.impl;
 
 import dev.enzosoares.consignado.simulacao.cliente.Cliente;
 import dev.enzosoares.consignado.simulacao.cliente.dataprovider.ClienteRepository;
+import dev.enzosoares.consignado.simulacao.errors.BadRequestException;
+import dev.enzosoares.consignado.simulacao.errors.NotFoundException;
 import dev.enzosoares.consignado.simulacao.simulacaoemprestimo.SimulacaoEmprestimo;
 import dev.enzosoares.consignado.simulacao.simulacaoemprestimo.dataprovider.SimulacaoEmprestimoRepository;
 import dev.enzosoares.consignado.simulacao.simulacaoemprestimo.usecase.SimularEmprestimoConsignadoUseCase;
@@ -35,25 +37,27 @@ public class SimularEmprestimoConsignadoUseCaseImpl implements SimularEmprestimo
     public SimularEmprestimoConsignadoOutput simular(final SimularEmprestimoConsignadoInput input) {
         final var cpfCliente = CPF.with(input.cpf());
         final var cliente = clienteRepository.findByCpf(cpfCliente)
-                .orElseThrow(() -> new RuntimeException("Cliente não encontrado"));
+                .orElseThrow(() -> new NotFoundException("Cliente não encontrado"));
+
         final var valorSolicitado = input.valorSolicitado();
         final var quantidadeDesejadaParcelas = input.quantidadeParcelas();
-        final var taxa = SimularEmprestimoConsignadoUseCaseImpl
-                .calcularTaxaJurosCliente(cliente)
-                .multiply(BigDecimal.valueOf(quantidadeDesejadaParcelas))
-                .add(BigDecimal.ONE);
-
+        final var taxa = SimularEmprestimoConsignadoUseCaseImpl.calcularTaxaJurosCliente(cliente);
+        final var taxaTotal = taxa.multiply(BigDecimal.valueOf(quantidadeDesejadaParcelas)).add(BigDecimal.ONE);
         final var quantidadeMaximaParcelas = SimularEmprestimoConsignadoUseCaseImpl.calcularPrazoMaximoSimulacaoCliente(cliente);
 
         if (quantidadeDesejadaParcelas > quantidadeMaximaParcelas) {
-            throw new RuntimeException(
+            throw new BadRequestException(
                     MessageFormat
                             .format("O número máximo de parcelas permitido para o segmento do cliente é de {0} meses", quantidadeMaximaParcelas)
             );
         }
 
-        final var valorFinal = valorSolicitado.multiply(taxa).setScale(2, RoundingMode.HALF_EVEN);
-        final var valorParcela = valorFinal.divide(BigDecimal.valueOf(quantidadeDesejadaParcelas), 2, RoundingMode.HALF_EVEN);
+        final var valorFinal = valorSolicitado
+                .multiply(taxaTotal)
+                .setScale(2, RoundingMode.HALF_EVEN);
+
+        final var valorParcela = valorFinal
+                .divide(BigDecimal.valueOf(quantidadeDesejadaParcelas), 2, RoundingMode.HALF_EVEN);
 
         final var simulacao = SimulacaoEmprestimo.with(
                 cpfCliente,
