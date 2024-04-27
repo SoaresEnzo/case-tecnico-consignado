@@ -28,5 +28,5 @@ public interface ClienteRestEntrypoint {
             @ApiResponse(responseCode = "200", description = "Clientes listados com sucesso"),
             @ApiResponse(responseCode = "500", description = "Erro interno")
     })
-    ResponseEntity<List<ListarClientesResponseItem>> simularEmprestimoConsignado();
+    ResponseEntity<List<ListarClientesResponseItem>> listarClientes();
 }

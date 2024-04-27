@@ -21,7 +21,7 @@ public class ClienteRestController implements ClienteRestEntrypoint {
     }
 
     @Override
-    public ResponseEntity<List<ListarClientesResponseItem>> simularEmprestimoConsignado() {
+    public ResponseEntity<List<ListarClientesResponseItem>> listarClientes() {
         return ResponseEntity.ok(
                 listarClientesUseCase
                         .listar()

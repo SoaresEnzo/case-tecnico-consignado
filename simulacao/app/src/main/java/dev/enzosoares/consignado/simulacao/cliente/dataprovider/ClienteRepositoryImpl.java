@@ -18,7 +18,8 @@ public class ClienteRepositoryImpl implements ClienteRepository {
 
     @Override
     public Optional<Cliente> findByCpf(CPF cpf) {
-        return this.clienteMySQLRepository.findById(cpf.getValue())
+        return this.clienteMySQLRepository
+                .findById(cpf.getValue())
                 .map(ClienteMapper::toDomain);
     }
 

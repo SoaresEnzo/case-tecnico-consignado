@@ -4,6 +4,7 @@ import dev.enzosoares.consignado.simulacao.simulacaoemprestimo.SimulacaoEmpresti
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.StreamSupport;
 
 @Repository
@@ -31,5 +32,12 @@ public class SimulacaoEmprestimoRepositoryImpl implements SimulacaoEmprestimoRep
     public void save(SimulacaoEmprestimo simulacaoEmprestimo) {
         final var jpaEntity = SimulacaoEmprestimoMapper.toEntity(simulacaoEmprestimo);
         this.simulacaoEmprestimoMySQLRepository.save(jpaEntity);
+    }
+
+    @Override
+    public Optional<SimulacaoEmprestimo> findById(String id) {
+        return this.simulacaoEmprestimoMySQLRepository
+                .findById(id)
+                .map(SimulacaoEmprestimoMapper::toDomain);
     }
 }
