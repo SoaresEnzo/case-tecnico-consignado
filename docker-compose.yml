@@ -1,21 +1,46 @@
 version: '3.7'
 
+networks:
+  consignado:
+    driver: bridge
+
 services:
+  simulacao:
+    container_name: simulacao_microservice
+    command: dockerize -wait tcp://mysql:3306 -timeout 180s java -jar app.jar
+    build: ./simulacao
+    environment:
+      - DATABASE_MYSQL_URL=mysql:3306
+    depends_on:
+      - mysql
+    ports:
+      - 8080:8080
+    networks:
+      - consignado
+
+  custodia:
+    container_name: custodia_microservice
+    command: dockerize -wait tcp://mysql:3306 -timeout 180s java -jar app.jar
+    build: ./custodia
+    environment:
+      - DATABASE_MYSQL_URL=mysql:3306
+      - CONSIGNADO_SIMULACAO_API=http://simulacao:8080
+    depends_on:
+      - mysql
+    ports:
+      - 8081:8081
+    networks:
+      - consignado
+
   mysql:
     container_name: simulacao_database
     image: mysql:latest
     environment:
       - MYSQL_ROOT_PASSWORD=123456
       - MYSQL_DATABASE=simulacao
-    security_opt:
-      - seccomp:unconfined
     ports:
       - 3306:3306
     networks:
-      - simulacao
+      - consignado
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-
-       
-networks:
-  simulacao:

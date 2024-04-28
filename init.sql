@@ -28,7 +28,7 @@ CREATE TABLE `simulacao_emprestimo` (
 );
 
 CREATE TABLE `custodia_contrato` (
-  `id` binary(16) NOT NULL,
+  `id` varchar(36) NOT NULL,
   `data_contrato` date NOT NULL,
   `id_simulacao` varchar(36) NOT NULL,
   PRIMARY KEY (`id`),

@@ -4,6 +4,7 @@ import dev.enzosoares.consignado.custodia.errors.NotFoundException;
 import dev.enzosoares.consignado.custodia.errors.SystemError;
 import dev.enzosoares.consignado.custodia.simulacaoemprestimo.SimulacaoEmprestimo;
 import dev.enzosoares.consignado.custodia.simulacaoemprestimo.facade.response.GetSimulacaoEmprestimoResponseBody;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -17,7 +18,8 @@ import java.util.UUID;
 
 @Service
 public class SimulacaoEmprestimoFacadeImpl implements SimulacaoEmprestimoFacade {
-    final String SIMULACAO_EMPRESTIMO_API = "http://localhost:8080/api/v1/simulacoes/";
+    @Value("${consignado.simulacao_emprestimo_api}")
+    String SIMULACAO_EMPRESTIMO_API ;
 
     @Override
     public Optional<SimulacaoEmprestimo> fetchById(UUID id) {
@@ -27,7 +29,7 @@ public class SimulacaoEmprestimoFacadeImpl implements SimulacaoEmprestimoFacade 
         HttpEntity<String> requestEntity = new HttpEntity<>(headers);
         try {
             GetSimulacaoEmprestimoResponseBody simulacaoEmprestimo = restTemplate
-                    .exchange(SIMULACAO_EMPRESTIMO_API + id, HttpMethod.GET, requestEntity, GetSimulacaoEmprestimoResponseBody.class)
+                    .exchange(SIMULACAO_EMPRESTIMO_API + "/api/v1/simulacoes/" + id, HttpMethod.GET, requestEntity, GetSimulacaoEmprestimoResponseBody.class)
                     .getBody();
 
             assert simulacaoEmprestimo != null;
@@ -38,7 +40,7 @@ public class SimulacaoEmprestimoFacadeImpl implements SimulacaoEmprestimoFacade 
             if (e.getStatusCode().value() == 404) return Optional.empty();
             if (e.getStatusCode().value() == 400) throw new NotFoundException("Simulação de empréstimo inválida");
         } catch (Exception e) {
-
+            System.out.println(e.getMessage());
             if (e.getMessage().contains("Connection refused")) {
                 throw new SystemError("Serviço de simulação de empréstimo indisponível, por favor tente mais tarde.");
             }
