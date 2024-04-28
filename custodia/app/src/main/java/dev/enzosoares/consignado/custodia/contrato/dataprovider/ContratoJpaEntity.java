@@ -13,7 +13,7 @@ public class ContratoJpaEntity {
     @Id
     @Column(length = 36)
     private String id;
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "DATETIME(9)")
     private Instant dataContrato;
     @Column(nullable = false, length = 36)
     private String idSimulacao;

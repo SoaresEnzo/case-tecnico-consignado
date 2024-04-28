@@ -9,7 +9,7 @@ public class SimulacaoEmprestimo {
     private final UUID idSimulacao;
     private final Instant dataSimulacao;
     private final String cpfCliente;
-    private final BigDecimal valorEmprestimo;
+    private final BigDecimal valorTotal;
     private final BigDecimal valorParcela;
     private final Integer quantidadeParcelas;
     private final BigDecimal taxaJuros;
@@ -19,7 +19,7 @@ public class SimulacaoEmprestimo {
                                 final String cpfCliente,
                                 final Instant dataSimulacao,
                                 final BigDecimal valorParcela,
-                                final BigDecimal valorEmprestimo,
+                                final BigDecimal valorTotal,
                                 final BigDecimal taxaJuros,
                                 final Integer quantidadeParcelas,
                                 final BigDecimal valorSolicitado
@@ -28,7 +28,7 @@ public class SimulacaoEmprestimo {
         this.cpfCliente = cpfCliente;
         this.dataSimulacao = dataSimulacao;
         this.valorParcela = valorParcela;
-        this.valorEmprestimo = valorEmprestimo;
+        this.valorTotal = valorTotal;
         this.taxaJuros = taxaJuros;
         this.quantidadeParcelas = quantidadeParcelas;
         this.valorSolicitado = valorSolicitado;
@@ -39,7 +39,7 @@ public class SimulacaoEmprestimo {
             final Instant dataSimulacao,
             final String cpfCliente,
             final BigDecimal valorParcela,
-            final BigDecimal valorEmprestimo,
+            final BigDecimal valorTotal,
             final BigDecimal taxaJuros,
             final Integer quantidadeParcelas,
             final BigDecimal valorSolicitado
@@ -48,7 +48,7 @@ public class SimulacaoEmprestimo {
                 UUID.fromString(uuid),
                 cpfCliente,
                 dataSimulacao,
-                valorParcela, valorEmprestimo,
+                valorParcela, valorTotal,
                 taxaJuros,
                 quantidadeParcelas,
                 valorSolicitado
@@ -59,8 +59,8 @@ public class SimulacaoEmprestimo {
         return idSimulacao;
     }
 
-    public BigDecimal getValorEmprestimo() {
-        return valorEmprestimo;
+    public BigDecimal getValorTotal() {
+        return valorTotal;
     }
 
     public String getCpfCliente() {

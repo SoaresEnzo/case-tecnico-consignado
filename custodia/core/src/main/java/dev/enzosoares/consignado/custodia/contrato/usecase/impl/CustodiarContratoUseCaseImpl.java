@@ -32,7 +32,7 @@ public class CustodiarContratoUseCaseImpl implements CustodiarContratoUseCase {
         final var idSimulacao = input.idSimulacao();
         final var simulacao = this.simulacaoEmprestimoFacade
                 .fetchById(UUID.fromString(idSimulacao))
-                .orElseThrow(() -> new NotFoundException("Não foi possível buscar a simulação."));
+                .orElseThrow(() -> new NotFoundException("Simulação não encontrada."));
 
         final var contratoCustodiado = Contrato.with(simulacao.getIdSimulacao().toString());
         this.contratoRepository.save(contratoCustodiado);

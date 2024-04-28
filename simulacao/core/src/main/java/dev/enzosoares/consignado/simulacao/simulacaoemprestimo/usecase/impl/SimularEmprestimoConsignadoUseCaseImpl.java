@@ -70,7 +70,7 @@ public class SimularEmprestimoConsignadoUseCaseImpl implements SimularEmprestimo
         if (quantidadeDesejadaParcelas > quantidadeMaximaParcelas) {
             throw new BadRequestException(
                     MessageFormat
-                            .format("O número máximo de parcelas permitido para o segmento do cliente é de {0} meses", quantidadeMaximaParcelas)
+                            .format("O número máximo de parcelas permitido para o segmento do cliente é {0}", quantidadeMaximaParcelas)
             );
         }
 

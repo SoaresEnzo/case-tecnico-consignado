@@ -173,7 +173,7 @@ public class SimularEmprestimoConsignadoUseCaseImplTest {
                 new BigDecimal("1000.00"),
                 90
         );
-        final var expectedMessage = "O número máximo de parcelas permitido para o segmento do cliente é de 12 meses";
+        final var expectedMessage = "O número máximo de parcelas permitido para o segmento do cliente é 12";
         final var aCliente = Cliente.with(
                 CPF.with("222.222.222-22"),
                 "Michael Jackson",
