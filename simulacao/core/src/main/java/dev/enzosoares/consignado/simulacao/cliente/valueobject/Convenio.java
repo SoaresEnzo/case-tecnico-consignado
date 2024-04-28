@@ -12,7 +12,7 @@ public enum Convenio {
 
         @Override
         public String toString() {
-                return "Empresa Privada";
+            return "Empresa Privada";
         }
     },
     ORGAO_PUBLICO("OP") {
@@ -23,7 +23,7 @@ public enum Convenio {
 
         @Override
         public String toString() {
-                return "Orgão Público";
+            return "Orgão Público";
         }
     },
     INSS("INSS") {
@@ -39,12 +39,6 @@ public enum Convenio {
         this.key = key;
     }
 
-    public abstract BigDecimal getTaxa();
-
-    public String getKey() {
-        return key;
-    }
-
     public static Convenio getConvenioByKey(String key) {
         for (Convenio convenio : Convenio.values()) {
             if (convenio.getKey().equals(key)) {
@@ -52,5 +46,11 @@ public enum Convenio {
             }
         }
         throw new RuntimeException("Convenio não encontrado para a chave: " + key);
+    }
+
+    public abstract BigDecimal getTaxa();
+
+    public String getKey() {
+        return key;
     }
 }

@@ -2,6 +2,7 @@ package dev.enzosoares.consignado.simulacao.simulacaoemprestimo.usecase.impl;
 
 import dev.enzosoares.consignado.simulacao.cliente.Cliente;
 import dev.enzosoares.consignado.simulacao.cliente.dataprovider.ClienteRepository;
+import dev.enzosoares.consignado.simulacao.cliente.valueobject.CPF;
 import dev.enzosoares.consignado.simulacao.errors.BadRequestException;
 import dev.enzosoares.consignado.simulacao.errors.NotFoundException;
 import dev.enzosoares.consignado.simulacao.simulacaoemprestimo.SimulacaoEmprestimo;
@@ -9,7 +10,6 @@ import dev.enzosoares.consignado.simulacao.simulacaoemprestimo.dataprovider.Simu
 import dev.enzosoares.consignado.simulacao.simulacaoemprestimo.usecase.SimularEmprestimoConsignadoUseCase;
 import dev.enzosoares.consignado.simulacao.simulacaoemprestimo.usecase.dto.SimularEmprestimoConsignadoInput;
 import dev.enzosoares.consignado.simulacao.simulacaoemprestimo.usecase.dto.SimularEmprestimoConsignadoOutput;
-import dev.enzosoares.consignado.simulacao.cliente.valueobject.CPF;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
@@ -31,6 +31,28 @@ public class SimularEmprestimoConsignadoUseCaseImpl implements SimularEmprestimo
     ) {
         this.clienteRepository = Objects.requireNonNull(clienteRepository);
         this.simulacaoEmprestimoRepository = Objects.requireNonNull(simulacaoEmprestimoRepository);
+    }
+
+    public static BigDecimal calcularTaxaJurosCliente(Cliente cliente) {
+        final var taxaOriginal = cliente
+                .getConvenio()
+                .getTaxa();
+
+        if (cliente.isCorrentista()) {
+            return new BigDecimal("0.95")
+                    .multiply(taxaOriginal)
+                    .stripTrailingZeros();
+        }
+
+        return taxaOriginal.stripTrailingZeros();
+    }
+
+    public static Integer calcularPrazoMaximoSimulacaoCliente(Cliente cliente) {
+        if (cliente.isCorrentista() && cliente.getSegmento() != null) {
+            return cliente.getSegmento().prazoMesesSimulacao();
+        }
+
+        return 12;
     }
 
     @Override
@@ -81,27 +103,5 @@ public class SimularEmprestimoConsignadoUseCaseImpl implements SimularEmprestimo
                 simulacao.getQuantidadeParcelas(),
                 simulacao.getTaxaJuros(),
                 simulacao.getValorSolicitado());
-    }
-
-    public static BigDecimal calcularTaxaJurosCliente(Cliente cliente) {
-        final var taxaOriginal = cliente
-                .getConvenio()
-                .getTaxa();
-
-        if (cliente.isCorrentista()) {
-            return new BigDecimal("0.95")
-                    .multiply(taxaOriginal)
-                    .stripTrailingZeros();
-        }
-
-        return taxaOriginal.stripTrailingZeros();
-    }
-
-    public static Integer calcularPrazoMaximoSimulacaoCliente(Cliente cliente) {
-        if (cliente.isCorrentista() && cliente.getSegmento() != null) {
-            return cliente.getSegmento().prazoMesesSimulacao();
-        }
-
-        return 12;
     }
 }

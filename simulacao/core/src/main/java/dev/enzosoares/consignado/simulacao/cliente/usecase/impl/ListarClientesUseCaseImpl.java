@@ -3,7 +3,6 @@ package dev.enzosoares.consignado.simulacao.cliente.usecase.impl;
 import dev.enzosoares.consignado.simulacao.cliente.dataprovider.ClienteRepository;
 import dev.enzosoares.consignado.simulacao.cliente.usecase.ListarClientesUseCase;
 import dev.enzosoares.consignado.simulacao.cliente.usecase.dto.ListarClientesOutputItem;
-import dev.enzosoares.consignado.simulacao.simulacaoemprestimo.dataprovider.SimulacaoEmprestimoRepository;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 

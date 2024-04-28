@@ -1,10 +1,6 @@
 package dev.enzosoares.consignado.simulacao.simulacaoemprestimo.entrypoint.rest.requests;
 
-import dev.enzosoares.consignado.simulacao.errors.BadRequestException;
 import dev.enzosoares.consignado.simulacao.simulacaoemprestimo.usecase.dto.SimularEmprestimoConsignadoInput;
-import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
 

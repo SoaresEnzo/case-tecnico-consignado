@@ -1,6 +1,5 @@
 package dev.enzosoares.consignado.simulacao.simulacaoemprestimo.usecase.impl;
 
-import dev.enzosoares.consignado.simulacao.cliente.dataprovider.ClienteRepository;
 import dev.enzosoares.consignado.simulacao.cliente.valueobject.CPF;
 import dev.enzosoares.consignado.simulacao.cliente.valueobject.Convenio;
 import dev.enzosoares.consignado.simulacao.simulacaoemprestimo.SimulacaoEmprestimo;

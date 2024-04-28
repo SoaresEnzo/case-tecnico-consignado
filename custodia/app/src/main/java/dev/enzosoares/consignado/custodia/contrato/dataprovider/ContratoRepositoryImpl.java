@@ -15,7 +15,7 @@ public class ContratoRepositoryImpl implements ContratoRepository {
 
     @Override
     public void save(Contrato contrato) {
-        final var entity = ContratoMapper.toJpaEntity(contrato);
+        final var entity = ContratoMapper.toEntity(contrato);
         this.contratoMySQLRepository.save(entity);
     }
 

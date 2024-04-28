@@ -5,6 +5,7 @@ import dev.enzosoares.consignado.simulacao.cliente.valueobject.Convenio;
 
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.UUID;
 
 public class SimulacaoEmprestimo {
@@ -52,7 +53,7 @@ public class SimulacaoEmprestimo {
                 UUID.randomUUID(),
                 cpfCliente,
                 convenioCliente,
-                Instant.now(),
+                Instant.now().truncatedTo(ChronoUnit.SECONDS),
                 valorParcela, valorEmprestimo,
                 taxaJuros,
                 quantidadeParcelas,

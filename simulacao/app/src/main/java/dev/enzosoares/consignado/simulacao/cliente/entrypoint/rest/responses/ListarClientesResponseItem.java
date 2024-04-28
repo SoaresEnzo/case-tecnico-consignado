@@ -1,6 +1,5 @@
 package dev.enzosoares.consignado.simulacao.cliente.entrypoint.rest.responses;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import dev.enzosoares.consignado.simulacao.cliente.usecase.dto.ListarClientesOutputItem;
 
 public record ListarClientesResponseItem(

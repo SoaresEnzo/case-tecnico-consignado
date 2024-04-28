@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 @Table(name = "cliente")
 public class ClienteJpaEntity {
     @Id
-    @Column(name ="cpf")
+    @Column(name = "cpf")
     private String cpf;
     @Column(nullable = false)
     private String nome;

@@ -26,6 +26,7 @@ public interface SimulacaoRestEntrypoint {
             @ApiResponse(responseCode = "201", description = "Simulação realizada com sucesso"),
             @ApiResponse(responseCode = "400", description = "Erro na simulação"),
             @ApiResponse(responseCode = "404", description = "Cliente não encontrado"),
+            @ApiResponse(responseCode = "415", description = "Tipo de mídia não suportado"),
             @ApiResponse(responseCode = "500", description = "Erro interno")
     })
     ResponseEntity<?> simularEmprestimoConsignado(
@@ -39,6 +40,7 @@ public interface SimulacaoRestEntrypoint {
     @Operation(summary = "Listar simulações de empréstimo consignado")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Simulações listadas com sucesso"),
+            @ApiResponse(responseCode = "415", description = "Tipo de mídia não suportado"),
             @ApiResponse(responseCode = "500", description = "Erro interno")
     })
     ResponseEntity<List<ListarSimulacoesResponseItem>> listarSimulacoes();
@@ -52,6 +54,7 @@ public interface SimulacaoRestEntrypoint {
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Simulação encontrada com sucesso"),
             @ApiResponse(responseCode = "404", description = "Simulação não encontrada"),
+            @ApiResponse(responseCode = "415", description = "Tipo de mídia não suportado"),
             @ApiResponse(responseCode = "500", description = "Erro interno")
     })
     ResponseEntity<BuscarSimulacaoEmprestimoOutput> buscarSimulacaoPorId(

@@ -11,16 +11,16 @@ public class CPF {
         this.value = value;
     }
 
-    private void validate() {
-        if (!value.matches("[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}")) {
-            throw new BadRequestException("CPF inválido, deve estar no formato DDD.DDD.DDD-DD");
-        }
-    }
-
     public static CPF with(String value) {
         CPF cpf = new CPF(value);
         cpf.validate();
         return cpf;
+    }
+
+    private void validate() {
+        if (!value.matches("[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}")) {
+            throw new BadRequestException("CPF inválido, deve estar no formato DDD.DDD.DDD-DD");
+        }
     }
 
     public String getValue() {

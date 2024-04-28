@@ -9,5 +9,6 @@ import java.util.Optional;
 public interface ClienteRepository {
 
     Optional<Cliente> findByCpf(CPF cpf);
+
     List<Cliente> findAll();
 }

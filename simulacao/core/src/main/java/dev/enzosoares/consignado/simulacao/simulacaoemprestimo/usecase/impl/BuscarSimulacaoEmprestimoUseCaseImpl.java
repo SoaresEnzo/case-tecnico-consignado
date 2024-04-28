@@ -24,7 +24,7 @@ public class BuscarSimulacaoEmprestimoUseCaseImpl implements BuscarSimulacaoEmpr
     public BuscarSimulacaoEmprestimoOutput buscar(String input) {
         final var simulacao = this.simulacaoEmprestimoRepository
                 .findById(input)
-                .orElseThrow(()-> new NotFoundException("Simulação não encontrada."));
+                .orElseThrow(() -> new NotFoundException("Simulação não encontrada."));
 
         return BuscarSimulacaoEmprestimoOutput.from(simulacao);
     }

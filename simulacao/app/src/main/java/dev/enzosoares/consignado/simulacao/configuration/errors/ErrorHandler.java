@@ -11,9 +11,9 @@ public class ErrorHandler {
 
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<ErrorResponse> handleNotFoundException(NotFoundException e) {
-    return ResponseEntity
-                    .status(404)
-                    .body(new ErrorResponse(e.getMessage()));
+        return ResponseEntity
+                .status(404)
+                .body(new ErrorResponse(e.getMessage()));
     }
 
     @ExceptionHandler(BadRequestException.class)

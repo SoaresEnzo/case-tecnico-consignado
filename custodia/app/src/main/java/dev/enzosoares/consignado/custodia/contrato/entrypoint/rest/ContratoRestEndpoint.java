@@ -25,6 +25,7 @@ public interface ContratoRestEndpoint {
             @ApiResponse(responseCode = "201", description = "Contrato custodiado com sucesso"),
             @ApiResponse(responseCode = "400", description = "Erro na custódia do contrato"),
             @ApiResponse(responseCode = "404", description = "Simulação não encontrada"),
+            @ApiResponse(responseCode = "415", description = "Tipo de mídia não suportado"),
             @ApiResponse(responseCode = "500", description = "Erro interno")
     })
     ResponseEntity<CustodiarContratoResponse> custodiarContrato(

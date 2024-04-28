@@ -1,7 +1,6 @@
 package dev.enzosoares.consignado.simulacao.simulacaoemprestimo.entrypoint.rest.responses;
 
 import dev.enzosoares.consignado.simulacao.simulacaoemprestimo.usecase.dto.BuscarSimulacaoEmprestimoOutput;
-import dev.enzosoares.consignado.simulacao.simulacaoemprestimo.usecase.dto.ListarSimulacaoEmprestimoConsignadoOutputItem;
 
 import java.math.BigDecimal;
 import java.time.Instant;

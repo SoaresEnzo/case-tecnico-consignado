@@ -1,6 +1,5 @@
 package dev.enzosoares.consignado.simulacao.simulacaoemprestimo.usecase.impl;
 
-import dev.enzosoares.consignado.simulacao.cliente.dataprovider.ClienteRepository;
 import dev.enzosoares.consignado.simulacao.cliente.valueobject.CPF;
 import dev.enzosoares.consignado.simulacao.cliente.valueobject.Convenio;
 import dev.enzosoares.consignado.simulacao.errors.NotFoundException;
@@ -18,7 +17,8 @@ import java.math.BigDecimal;
 import java.util.Optional;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @ExtendWith(MockitoExtension.class)
 class BuscarSimulacaoEmprestimoUseCaseImplTest {

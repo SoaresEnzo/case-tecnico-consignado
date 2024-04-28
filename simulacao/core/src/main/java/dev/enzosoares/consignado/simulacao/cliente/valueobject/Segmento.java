@@ -17,16 +17,10 @@ public enum Segmento {
         }
     };
 
-    public abstract Integer prazoMesesSimulacao();
-
     private final String key;
 
     Segmento(final String key) {
         this.key = key;
-    }
-
-    public String getKey() {
-        return key;
     }
 
     public static Segmento getSegmentoByKey(String key) {
@@ -36,5 +30,11 @@ public enum Segmento {
             }
         }
         return null;
+    }
+
+    public abstract Integer prazoMesesSimulacao();
+
+    public String getKey() {
+        return key;
     }
 }

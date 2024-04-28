@@ -8,6 +8,8 @@ import java.util.Optional;
 public interface SimulacaoEmprestimoRepository {
 
     List<SimulacaoEmprestimo> findAll();
+
     void save(SimulacaoEmprestimo simulacaoEmprestimo);
+
     Optional<SimulacaoEmprestimo> findById(String id);
 }

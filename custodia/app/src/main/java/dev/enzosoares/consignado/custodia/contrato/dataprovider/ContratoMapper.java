@@ -11,7 +11,7 @@ public class ContratoMapper {
         );
     }
 
-    public static ContratoJpaEntity toJpaEntity(Contrato contrato) {
+    public static ContratoJpaEntity toEntity(Contrato contrato) {
         return new ContratoJpaEntity(
                 contrato.getIdContrato(),
                 contrato.getDataContratacao(),
