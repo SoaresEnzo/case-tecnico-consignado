@@ -12,6 +12,18 @@ O projeto pode ser executado usando o Docker Compose.
 2. Docker-compose
 3. Maven(Opcional) 
 
+
+## Como executar o projeto (Com maven)
+
+1. Nos diretorios custodia e simulacao, dentro da pasta raiz do projeto, execute o comando e verifique a criacao da pasta target dentro de app:
+   ```
+   mvn clean package -DskipTests
+   ```
+   
+2. Substitua o conteudo dos arquivo Dockerfile por seus respectivos Dockefile
+3. Siga o passo a passo abaixo 
+
+
 ## Como executar o projeto (Sem maven)
 
   
@@ -64,7 +76,6 @@ O projeto pode ser executado usando o Docker Compose.
 - http://localhost:8080/v3/api-docs
   
 
-  
 
 ## Arquitetura
 
