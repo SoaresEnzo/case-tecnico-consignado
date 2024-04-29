@@ -1,56 +1,105 @@
 # Case Consignado
 
-Este é um projeto técnico desenvolvido em Spring Boot com uma arquitetura limpa (clean architecture) e um design de arquitetura em nuvem. O projeto pode ser executado usando o Docker Compose.
+  
+
+Este é um projeto técnico desenvolvido em Java 21 + Spring Boot utilizando uma versão simplificada de Clean Architecture.
+
+O projeto pode ser executado usando o Docker Compose.
+
+  
 
 ## Como executar o projeto
 
+  
+
 1. Certifique-se de ter o Docker e o Docker Compose instalados em sua máquina.
+
+  
 
 2. Clone este repositório em sua máquina local:
 
-    ```bash
-    git clone https://github.com/seu-usuario/nome-do-repositorio.git
-    ```
+  
+
+    ```bash
+
+    git clone https://github.com/SoaresEnzo/case-tecnico-consignado.git
+
+    ```
+
+  
 
 3. Navegue até o diretório raiz do projeto:
 
-    ```bash
-    cd nome-do-repositorio
-    ```
+  
+
+    ```bash
+
+    cd case-tecnico-consignado
+
+    ```
+
+  
 
 4. Execute o Docker Compose para construir e iniciar os contêineres do projeto:
 
-    ```bash
-    docker-compose up -d
-    ```
+  
+
+    ```bash
+
+    docker-compose up -d
+
+    ```
+
+  
 
 5. Aguarde até que todos os contêineres sejam iniciados com sucesso.
 
-6. Acesse o projeto em seu navegador usando o seguinte URL:
+  
 
-    ```
-    http://localhost:8080
-    ```
+6. As APIs estarão rodando nas portas 8080 e 8081 do seu computador. Acesse o projeto pelo insomnia importando a collection insomnia.json disponível na raiz do projeto ou acesse as urls de documentação para entender como chamar as APIs.
+
+  
+
+    ```
+
+    http://localhost:8081/swagger-ui/index.html
+    http://localhost:8081/v3/api-docs
+    http://localhost:8080/swagger-ui/index.html
+    http://localhost:8080/v3/api-docs
+
+    ```
+
+  
 
 ## Arquitetura
 
-O projeto segue uma arquitetura limpa (clean architecture), que promove a separação de responsabilidades em camadas distintas. A estrutura de diretórios do projeto é organizada da seguinte forma:
+  
 
-- `app`: Contém a camada de aplicação, responsável por orquestrar as ações do sistema.
-- `domain`: Contém a camada de domínio, onde estão as regras de negócio e entidades do sistema.
-- `infra`: Contém a camada de infraestrutura, responsável por implementar detalhes técnicos, como acesso a banco de dados e serviços externos.
-- `interfaces`: Contém as interfaces de entrada e saída do sistema, como APIs REST, interfaces gráficas, etc.
+O projeto segue uma versão simplificada de clean architecture, buscando segregar as responsabilidades da aplicação em camadas diferentes, inspirada no artigo [Descomplicando a Clean Architecture](https://helpdev.com.br/2020/05/21/descomplicando-a-clean-architecture/) .
 
-## Imagens
+<img src="https://helpdev.com.br/wp-content/uploads/2020/05/simple-clean-arch.png" alt="imagem ilustrativa da arquitetura">
 
-Aqui você pode adicionar imagens relevantes para ilustrar a arquitetura ou qualquer outra parte do projeto.
+  
 
-## Testes
+- `app`: Contém a camada de aplicação, responsável por fornecer as implementações técnicas do sistema. É nessa camada que ficam implementações de banco de dados ou de comunicações externas do sistema.
 
-## Documentacao
+- `core`: É o coração do sistema, contém as entidades e a orquestração das regras de negócio do sistema buscando independência de qualquer framework.
+  
 
-As apis estao com suas documentacoes no swagger disponiveis nos endpoints /swagger-ui/index.html e /v3/api-docs
+## Propostas de solução na AWS
 
-## Melhorias
+Solução 1
+![[Solution1.drawio.svg]]
 
-Aqui você pode citar possíveis melhorias para o projeto, como otimizações de desempenho, implementação de novas funcionalidades, correção de bugs, etc.
+Solução 2
+![[Solution2.drawio.svg]]
+  
+
+## Possíveis melhorias
+
+1. (Tech) Utilizar o Consul para comunicação entre microsserviços.
+2. (Tech) Colocar o Prometheus e o Grafana no docker-compose para coletar métricas dos microsserviços e monitorar.
+3. (Negócios) Criar tabela separada para segmento e APIs para deixar dinâmico o número máximo de parcelas por segmento.
+4. (Negócios) Validar se a custódia do contrato já foi feita para uma simulação.
+5. (Tech) Deixar o fuso-horário dinâmico para o usuário da API nos retornos de datas e horários.
+6. (Tech) Ajustar testes de integração e de implementações de banco de dados para funcionar com @DataJpaTest ao invés de @SpringBootTest
