@@ -9,6 +9,7 @@ import dev.enzosoares.consignado.custodia.contrato.usecase.CustodiarContratoUseC
 import dev.enzosoares.consignado.custodia.contrato.usecase.ListarContratosUseCase;
 import dev.enzosoares.consignado.custodia.simulacaoemprestimo.facade.SimulacaoEmprestimoFacade;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.mock.mockito.SpyBean;
@@ -49,6 +50,7 @@ public class ListarContratosUseCaseIT {
             assertEquals(aListOfContratos.get(i).getIdSimulacao(), result.get(i).idSimulacao());
             assertEquals(aListOfContratos.get(i).getDataContratacao(), result.get(i).dataContratacao());
         }
+        Mockito.verify(contratoRepository, Mockito.times(1)).findAll();
     }
 
     @Test
@@ -61,5 +63,6 @@ public class ListarContratosUseCaseIT {
 
         // then
         assertTrue(result.isEmpty());
+        Mockito.verify(contratoRepository, Mockito.times(1)).findAll();
     }
 }
