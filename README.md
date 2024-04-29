@@ -27,7 +27,8 @@ O projeto pode ser executado usando o Docker Compose.
    ```
    
 3. Substitua o conteudo dos arquivos Dockerfile por seus respectivos Dockerfile2
-4. Siga o passo a passo abaixo 
+4. Volte para o diretório raiz do projeto
+5. Siga o passo a passo abaixo a partir do passo 4
 
 
 ## Como executar o projeto (Sem maven - Apenas docker-compose)
