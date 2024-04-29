@@ -14,18 +14,23 @@ O projeto pode ser executado usando o Docker Compose.
 4. Maven(Opcional) 
 
 
-## Como executar o projeto (Com maven e Java)
+## Como executar o projeto (Com maven, java e docker-compose)
 
-1. Nos diretorios custodia e simulacao, dentro da pasta raiz do projeto, execute o comando e verifique a criacao da pasta target dentro de app:
+1. Clone este repositório em sua máquina local:
+   ```
+   git clone https://github.com/SoaresEnzo/case-tecnico-consignado.git
+   ```
+
+2. Nos diretorios custodia e simulacao, dentro da pasta raiz do projeto, execute o comando abaixo e verifique a criação da pasta target dentro de app:
    ```
    mvn clean package -DskipTests
    ```
    
-2. Substitua o conteudo dos arquivo Dockerfile por seus respectivos Dockefile
-3. Siga o passo a passo abaixo 
+3. Substitua o conteudo dos arquivos Dockerfile por seus respectivos Dockerfile2
+4. Siga o passo a passo abaixo 
 
 
-## Como executar o projeto (Sem maven)
+## Como executar o projeto (Sem maven - Apenas docker-compose)
 
   
 
@@ -37,7 +42,7 @@ O projeto pode ser executado usando o Docker Compose.
 
   
 
-    ```bash
+    ```
     git clone https://github.com/SoaresEnzo/case-tecnico-consignado.git
     ```
 
@@ -47,7 +52,7 @@ O projeto pode ser executado usando o Docker Compose.
 
   
 
-    ```bash
+    ```
     cd case-tecnico-consignado
     ```
 
@@ -57,7 +62,7 @@ O projeto pode ser executado usando o Docker Compose.
 
   
 
-    ```bash
+    ```
     docker-compose up -d
     ```
 
