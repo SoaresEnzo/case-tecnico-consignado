@@ -4,4 +4,4 @@ mysql:
   schema: ${DATABASE_MYSQL_SCHEMA:simulacao}
   url: ${DATABASE_MYSQL_URL:localhost:3306}
 consignado:
-  simulacao_emprestimo_api: ${CONSIGNADO_SIMULACAO_API:http://localhost:8080/}
+  simulacao_emprestimo_api: ${CONSIGNADO_SIMULACAO_API:http://localhost:8080}
