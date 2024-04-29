@@ -1,7 +1,0 @@
-mysql:
-  username: ${DATABASE_MYSQL_USERNAME:root}
-  password: ${DATABASE_MYSQL_PASSWORD:123456}
-  schema: ${DATABASE_MYSQL_SCHEMA:simulacao}
-  url: ${DATABASE_MYSQL_URL:localhost:3306}
-consignado:
-  simulacao_emprestimo_api: ${CONSIGNADO_SIMULACAO_API:http://localhost:8080}

@@ -6,9 +6,13 @@ Este é um projeto técnico desenvolvido em Java 21 + Spring Boot utilizando uma
 
 O projeto pode ser executado usando o Docker Compose.
 
-  
 
-## Como executar o projeto
+## Requisitos para executar
+1. Docker
+2. Docker-compose
+3. Maven(Opcional) 
+
+## Como executar o projeto (Sem maven)
 
   
 
