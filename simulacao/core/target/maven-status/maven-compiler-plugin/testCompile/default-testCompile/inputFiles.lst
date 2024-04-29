@@ -1,0 +1,6 @@
+/home/soares/projetos/challenges/case-consignado/simulacao/core/src/test/java/dev/enzosoares/consignado/simulacao/simulacaoemprestimo/usecase/impl/SimularEmprestimoConsignadoUseCaseImplTest.java
+/home/soares/projetos/challenges/case-consignado/simulacao/core/src/test/java/dev/enzosoares/consignado/simulacao/simulacaoemprestimo/usecase/impl/ListarSimulacoesUseCaseImplTest.java
+/home/soares/projetos/challenges/case-consignado/simulacao/core/src/test/java/dev/enzosoares/consignado/simulacao/simulacaoemprestimo/usecase/impl/BuscarSimulacaoEmprestimoUseCaseImplTest.java
+/home/soares/projetos/challenges/case-consignado/simulacao/core/src/test/java/dev/enzosoares/consignado/simulacao/cliente/valueobject/CPFTest.java
+/home/soares/projetos/challenges/case-consignado/simulacao/core/src/test/java/dev/enzosoares/consignado/simulacao/cliente/usecase/impl/ListarClientesUseCaseImplTest.java
+/home/soares/projetos/challenges/case-consignado/simulacao/core/src/test/java/dev/enzosoares/consignado/simulacao/cliente/usecase/dto/SimularEmprestimoConsignadoInputTest.java

@@ -1,0 +1,10 @@
+dev/enzosoares/consignado/simulacao/MySQLCleanUpExtension.class
+dev/enzosoares/consignado/simulacao/ApplicationTest.class
+dev/enzosoares/consignado/simulacao/core/simulacaoemprestimo/usecase/SimularEmprestimoConsignadoUseCaseIT.class
+dev/enzosoares/consignado/simulacao/simulacaoemprestimo/dataprovider/SimulacaoEmprestimoRepositoryImplTest.class
+dev/enzosoares/consignado/simulacao/cliente/dataprovider/ClienteRepositoryImplTest.class
+dev/enzosoares/consignado/simulacao/core/cliente/usecase/ListarClientesUseCaseTestIT.class
+dev/enzosoares/consignado/simulacao/simulacaoemprestimo/entrypoint/rest/SimulacaoRestEntrypointTest.class
+dev/enzosoares/consignado/simulacao/core/simulacaoemprestimo/usecase/ListarSimulacoesUseCaseIT.class
+dev/enzosoares/consignado/simulacao/cliente/entrypoint/rest/ClienteRestEntrypointTest.class
+dev/enzosoares/consignado/simulacao/core/simulacaoemprestimo/usecase/BuscarSimulacaoEmprestimoUseCaseIT.class

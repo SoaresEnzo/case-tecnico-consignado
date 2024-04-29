@@ -1,0 +1,15 @@
+dev/enzosoares/consignado/custodia/errors/DomainException.class
+dev/enzosoares/consignado/custodia/contrato/dataprovider/ContratoRepository.class
+dev/enzosoares/consignado/custodia/simulacaoemprestimo/SimulacaoEmprestimo.class
+dev/enzosoares/consignado/custodia/simulacaoemprestimo/facade/SimulacaoEmprestimoFacade.class
+dev/enzosoares/consignado/custodia/contrato/usecase/dto/CustodiarContratoUseCaseOutput.class
+dev/enzosoares/consignado/custodia/contrato/Contrato.class
+dev/enzosoares/consignado/custodia/contrato/usecase/impl/CustodiarContratoUseCaseImpl.class
+dev/enzosoares/consignado/custodia/contrato/usecase/impl/ListarContratosUseCaseImpl.class
+dev/enzosoares/consignado/custodia/contrato/usecase/dto/ListarContratoOutputItem.class
+dev/enzosoares/consignado/custodia/contrato/usecase/dto/CustodiarContratoUseCaseInput.class
+dev/enzosoares/consignado/custodia/contrato/usecase/CustodiarContratoUseCase.class
+dev/enzosoares/consignado/custodia/errors/SystemError.class
+dev/enzosoares/consignado/custodia/errors/NotFoundException.class
+dev/enzosoares/consignado/custodia/contrato/usecase/ListarContratosUseCase.class
+dev/enzosoares/consignado/custodia/errors/BadRequestException.class

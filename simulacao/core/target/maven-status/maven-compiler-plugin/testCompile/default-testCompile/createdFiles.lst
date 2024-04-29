@@ -1,0 +1,6 @@
+dev/enzosoares/consignado/simulacao/cliente/usecase/dto/SimularEmprestimoConsignadoInputTest.class
+dev/enzosoares/consignado/simulacao/simulacaoemprestimo/usecase/impl/SimularEmprestimoConsignadoUseCaseImplTest.class
+dev/enzosoares/consignado/simulacao/simulacaoemprestimo/usecase/impl/BuscarSimulacaoEmprestimoUseCaseImplTest.class
+dev/enzosoares/consignado/simulacao/cliente/valueobject/CPFTest.class
+dev/enzosoares/consignado/simulacao/cliente/usecase/impl/ListarClientesUseCaseImplTest.class
+dev/enzosoares/consignado/simulacao/simulacaoemprestimo/usecase/impl/ListarSimulacoesUseCaseImplTest.class
