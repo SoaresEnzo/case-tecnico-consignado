@@ -54,15 +54,11 @@ O projeto pode ser executado usando o Docker Compose.
 
   
 
-    ```
-    http://localhost:8081/swagger-ui/index.html
-
-    http://localhost:8081/v3/api-docs
-
-    http://localhost:8080/swagger-ui/index.html
-
-    http://localhost:8080/v3/api-docs
-    ```
+- http://localhost:8081/swagger-ui/index.html
+- http://localhost:8081/v3/api-docs
+- http://localhost:8080/swagger-ui/index.html
+- http://localhost:8080/v3/api-docs
+  
 
   
 
@@ -84,10 +80,10 @@ O projeto segue uma versão simplificada de clean architecture, buscando segrega
 ## Propostas de solução na AWS
 
 Solução 1
-![[Solution1.drawio.svg]]
+![Solucao sem fila](/Solution1.drawio.svg)
 
 Solução 2
-![[Solution2.drawio.svg]]
+![Solucao com fila](/Solution2.drawio.svg)
   
 
 ## Possíveis melhorias
