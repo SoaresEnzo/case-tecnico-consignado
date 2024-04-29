@@ -21,9 +21,7 @@ O projeto pode ser executado usando o Docker Compose.
   
 
     ```bash
-
     git clone https://github.com/SoaresEnzo/case-tecnico-consignado.git
-
     ```
 
   
@@ -33,9 +31,7 @@ O projeto pode ser executado usando o Docker Compose.
   
 
     ```bash
-
     cd case-tecnico-consignado
-
     ```
 
   
@@ -45,9 +41,7 @@ O projeto pode ser executado usando o Docker Compose.
   
 
     ```bash
-
     docker-compose up -d
-
     ```
 
   
@@ -61,12 +55,13 @@ O projeto pode ser executado usando o Docker Compose.
   
 
     ```
-
     http://localhost:8081/swagger-ui/index.html
-    http://localhost:8081/v3/api-docs
-    http://localhost:8080/swagger-ui/index.html
-    http://localhost:8080/v3/api-docs
 
+    http://localhost:8081/v3/api-docs
+
+    http://localhost:8080/swagger-ui/index.html
+
+    http://localhost:8080/v3/api-docs
     ```
 
   
