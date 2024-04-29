@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
-@RequestMapping("api/v1/contrato")
+@RequestMapping("api/v1/contratos")
 @Tag(name = "Contrato", description = "API de custódia de contrato de empréstimo consignado")
 public interface ContratoRestEndpoint {
 

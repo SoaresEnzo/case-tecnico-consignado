@@ -49,7 +49,7 @@ Aqui você pode adicionar imagens relevantes para ilustrar a arquitetura ou qual
 
 ## Documentacao
 
-
+As apis estao com suas documentacoes no swagger disponiveis nos endpoints /swagger-ui/index.html e /v3/api-docs
 
 ## Melhorias
 
