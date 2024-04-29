@@ -10,10 +10,11 @@ O projeto pode ser executado usando o Docker Compose.
 ## Requisitos para executar
 1. Docker
 2. Docker-compose
-3. Maven(Opcional) 
+3. Java21 (Opcional)
+4. Maven(Opcional) 
 
 
-## Como executar o projeto (Com maven)
+## Como executar o projeto (Com maven e Java)
 
 1. Nos diretorios custodia e simulacao, dentro da pasta raiz do projeto, execute o comando e verifique a criacao da pasta target dentro de app:
    ```
