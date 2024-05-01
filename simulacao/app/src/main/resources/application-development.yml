@@ -3,3 +3,17 @@ mysql:
   password: ${DATABASE_MYSQL_PASSWORD:123456}
   schema: ${DATABASE_MYSQL_SCHEMA:simulacao}
   url: ${DATABASE_MYSQL_URL:localhost:3306}
+
+spring:
+  application:
+    name: simulacao
+  cloud:
+    consul:
+      discovery:
+        hostname: simulacao
+        instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+        serviceName: simulacao-${spring.application.name}
+        healthCheckPath: /actuator/health
+        healthCheckInterval: 15s
+      host: consul
+      port: 8500

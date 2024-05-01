@@ -11,6 +11,12 @@
             <option name="homePath" value="/home/soares/.sdkman/candidates/java/21-open" />
           </config>
         </ContributedStateBase>
+        <ContributedStateBase type="MavenRuntime">
+          <config>
+            <option name="homePath" value="/usr/share/maven" />
+            <option name="versionString" value="3.6.3" />
+          </config>
+        </ContributedStateBase>
       </target>
     </targets>
   </component>

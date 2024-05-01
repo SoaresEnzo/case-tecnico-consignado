@@ -24,11 +24,19 @@ services:
     build: ./custodia
     environment:
       - DATABASE_MYSQL_URL=mysql:3306
-      - CONSIGNADO_SIMULACAO_API=http://simulacao:8080
+      - CONSIGNADO_SIMULACAO_API=simulacao-simulacao
     depends_on:
       - mysql
     ports:
       - 8081:8081
+    networks:
+      - consignado
+      
+  consul:
+    image: hashicorp/consul:latest
+    command: ["consul", "agent", "-dev", "-client", "0.0.0.0"]
+    ports:
+      - 8500:8500
     networks:
       - consignado
 
